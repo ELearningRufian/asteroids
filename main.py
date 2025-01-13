@@ -3,6 +3,7 @@
 # throughout this file
 import pygame
 from constants import *
+from player import *
 
 def main():
     # print("Starting asteroids!")
@@ -17,9 +18,12 @@ def main():
             if event.type == pygame.QUIT:
                 return
         pygame.Surface.fill(screen, (0, 0, 0))
-        pygame.display.flip()
         dt = clock.tick(60)/1000
-        print(dt)
+        x = SCREEN_WIDTH / 2
+        y = SCREEN_HEIGHT / 2
+        player = Player(x, y)
+        player.draw(screen)
+        pygame.display.flip()
 
 if __name__ == "__main__":
     main()
