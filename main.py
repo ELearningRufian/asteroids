@@ -47,7 +47,7 @@ def main():
         for asteroid in asteroids:
             for shot in shots:
                 if asteroid.is_overlap(shot):
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
         pygame.display.flip()
 
