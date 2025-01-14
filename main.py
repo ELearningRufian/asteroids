@@ -2,6 +2,7 @@
 # the open-source pygame library
 # throughout this file
 import pygame
+import sys
 from constants import *
 from player import *
 from asteroid import *
@@ -36,6 +37,10 @@ def main():
             updatable_sprite.update(dt)
         for drawable_sprite in drawable:
             drawable_sprite.draw(screen)
+        for asteroid in asteroids:
+            if asteroid.is_overlap(player):
+                print("Game Over!")
+                sys.exit(0)
         pygame.display.flip()
 
 if __name__ == "__main__":
